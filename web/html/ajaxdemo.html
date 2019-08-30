@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/jquery-migrate-1.0.0.js"></script>
+</head>
+<body>
+<script>
+    //调用ajax
+    function fun() {
+        $.ajax({
+            /*
+            * 需要填写的属性有url,data,type,success:function,error:function
+            *
+            * */
+            url: "Servletdemo1",//请求路径
+            type: "POST",//请求方式
+            data: {"username": "ajax", "age": 12},//参数
+            success: function (data) {
+                alert(data);
+            },
+            error: function () {
+                alert("出错了")
+            },
+            datatype: "text"//设置响应的数据类型
+        })
+    }
+</script>
+    <input type="button" onclick="fun()" value="启动">
+</body>
+</html>

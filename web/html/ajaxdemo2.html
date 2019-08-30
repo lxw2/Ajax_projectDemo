@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script>
+        // function fun() {
+        //     $.post("/ajax/Servletdemo1", {"username": "我是demo2"}, function (data) {
+        //         alert(data)
+        //     }, "text");
+        // }
+        function fun() {
+            $.get("Servletdemo1",{"username":"我是demo2中的get的方法"},function (data) {
+                alert(data);
+                // $("h5").html(data);
+            },"text")
+        };
+    </script>
+</head>
+<body>
+<input type="button" onclick="fun()" value="发送">
+<h5>132</h5>
+</body>
+</html>

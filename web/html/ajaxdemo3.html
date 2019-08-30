@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery-1.11.0.min.js"></script>
+
+    <script>
+        var username;
+        var message;
+        var age;
+        $(function () {
+            username = $("#username").html();
+            message = $("#message").html();
+            age=$("#age").html();
+            // alert(username+message+age);
+        })
+        function fun() {
+            // alert("我 进来了")
+            // alert($("#input1").val());
+            $.get(
+                //url,data,callback,type
+                "/ajax/Servletdemo1",
+                {"message":$("#input1").val()},//将输入的数据传送到服务器
+                function (data) {
+
+                    $("#message").html(data);//将id为message的单元格的内容更改
+                },
+                "text"
+            )
+        }
+    </script>
+</head>
+<style>
+    #input1{
+        width: 200px;
+    }
+</style>
+<body>
+<!--生成一个用来传输数据的input-->
+<input type="text" placeholder="请输入你要传输到服务器的数据" id="input1">
+<!--生成一个按钮用来调用ajax方法将数据上传并回调-->
+<input type="button" value="回调" id="button1" onclick=fun()>
+<!--生成已给盒子用来存放响应数据的-->
+<div class = "div1">
+    <table>
+        <tr>
+            <td>
+                username:
+            </td>
+            <td id="username">
+                我是username的回调数据
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                age:
+            </td>
+            <td id="age">
+                我是age的回调数据
+            </td>
+        </tr>
+        <tr>
+            <td>
+                message:
+            </td>
+            <td id="message">
+                我是message的回调数据
+            </td>
+        </tr>
+
+    </table>
+
+</div>
+</body>
+</html>
